@@ -1,6 +1,8 @@
 # Pre-Entrega de Proyecto 👨‍💻 (Talento Tech) 
 ## Tienda de Instrumentos Abacus 🎷
-Este proyecto es una tienda en línea de instrumentos musicales donde los clientes pueden explorar una variedad de productos, leer reseñas de otros usuarios y contactarse con la tienda para realizar consultas. La página está diseñada para ser visualmente atractiva, funcional y accesible desde distintos dispositivos.
+Este proyecto es una tienda en línea de instrumentos musicales donde los clientes pueden explorar una variedad de productos, leer reseñas de otros usuarios y contactarse con la tienda para realizar consultas. La página está diseñada para ser visualmente atractiva, funcional y accesible desde distintos dispositivos.<br/>
+Ingrese a la pagina con [Netlify](https://tienda-abacus.netlify.app/)<br/>
+Ingrese a la pagina con [GitHub Pages](https://ivobarin.github.io/Entrega-TalentoTech/index.html)
 
 ## Propósito 
 La página tiene como objetivo proporcionar a los usuarios una experiencia fluida para:
@@ -14,6 +16,8 @@ La página tiene como objetivo proporcionar a los usuarios una experiencia fluid
 
 2. **Formulario de Contacto**:
    - La página incluye un formulario de contacto que permite a los usuarios enviar sus datos y mensajes, implementado con [Formspree](https://formspree.io/) para gestionar los envíos.
+   - La estructura y estilos adicionales están potenciados por [Bootstrap](https://getbootstrap.com/) para una disposición rápida y responsiva.
+   - Se utiliza [Font Awesome](https://fontawesome.com/) para agregar íconos y mejorar la experiencia visual.
 
 3. **Estilos con CSS**:
    - Un archivo `styles.css` externo define el diseño básico de las secciones principales, aplicando fuentes de [Google Fonts](https://fonts.google.com/) y fondos personalizados.
@@ -29,6 +33,7 @@ La página tiene como objetivo proporcionar a los usuarios una experiencia fluid
 
 ## Tecnologías Utilizadas
 - **HTML5** y **CSS3** para la estructura y estilos de la página.
+- **Bootstrap** y **Font-Awesome** para componentes responsivos, iconos y diseño rápido. 
 - **Flexbox** y **CSS Grid** para lograr un diseño adaptable.
 - **Formspree** para el manejo del formulario de contacto.
 - **Netlify** o **GitHub Pages** como plataformas de despliegue.
