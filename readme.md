@@ -1,6 +1,6 @@
 # Pre-Entrega de Proyecto 👨‍💻 (Talento Tech) 
 ## Tienda de Instrumentos Abacus 🎷
-Este proyecto es una tienda en línea de instrumentos musicales donde los clientes pueden explorar una variedad de productos, leer reseñas de otros usuarios y contactarse con la tienda para realizar consultas. La página está diseñada para ser visualmente atractiva, funcional y accesible desde distintos dispositivos.
+Este proyecto es una tienda en línea de instrumentos musicales donde los clientes pueden explorar una variedad de productos, leer reseñas de otros usuarios y contactarse con la tienda para realizar consultas. La página está diseñada para ser visualmente atractiva, funcional y accesible desde distintos dispositivos.<br/>
 Ingrese a la pagina con [Netlify](https://tienda-abacus.netlify.app/)<br/>
 Ingrese a la pagina con [GitHub Pages](https://ivobarin.github.io/Entrega-TalentoTech/index.html)
 
