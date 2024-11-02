@@ -1,0 +1,219 @@
+<!-- Estructura semántica: El HTML debe estar 
+dividido en las etiquetas semánticas principales: 
+header, nav, main, section, footer.  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=REM:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Tienda Abacus</title>
+</head>
+
+<body>
+    <!-- Header con Navbar -->
+    <header class="container-menu">
+        <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark">
+            <div class="container-fluid">
+
+                <!-- logo -->
+                <a class="navbar-brand ps-5 mb-3 pt-3" href="index.html">
+                    <img src="images/logo_nombre.png" alt="Logo tienda abacus">
+                </a>
+
+                <!-- menú offcanvas -->
+                <div class="offcanvas offcanvas-start menu navbar-dark bg-dark" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENÚ</h5>
+                        <!-- botón cerrar -->
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <!-- cuerpo offcanvas -->
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-center flex-grow-1 gap-2">
+                            <li class="nav-item">
+                                <a class="nav-link underline" aria-current="page" href="index.html">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link underline" href="tienda.html">TIENDA</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link underline" href="contacto.html">CONTACTO</a>
+                            </li>
+                        </ul>
+
+                        <!-- buscador -->
+                        <form class="d-flex me-3" role="search">
+                            <input class="form-control me-1" type="search" placeholder="Buscar" aria-label="Search">
+                            <button class="btn btn-secondary" type="submit" title="Buscar">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- carrito y botón menú -->
+                <div class="d-flex">
+                    <!-- carrito -->
+                    <ul class="navbar-nav me-4">
+                        <li class="nav-item">
+                            <a class="nav-link underline" href="#carrito" title="carrito">
+                                <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- botón menú -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main id="cuerpo-tienda" class="pb-4 pt-4">
+        <!-- Sección Tienda -->
+        <h2 class="text-center">TIENDA</h2>
+        <section id="tienda" class="container">
+            <!-- Producto 1 (card) -->
+            <div class="card border-light h-100">
+                <img src="images/placeholder.png" class="card-img-top" alt="Producto 1">
+                <div class="card card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">Producto 1</h5>
+                    <p class="card-text">Descripción del producto 1</p>
+                    <p class="card-text">Precio: 100$</p>
+                    <a href="#" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+            </div>
+            <!-- Producto 2 (card) -->
+            <div class="card h-100 border-light">
+                <img src="images/placeholder.png" class="card-img-top" alt="Producto 2">
+                <div class="card card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">Producto 2</h5>
+                    <p class="card-text">Descripción del producto 2</p>
+                    <p class="card-text">Precio: 200$</p>
+                    <a href="#" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+            </div>
+            <!-- Producto 3 (card) -->
+            <div class="card h-100 border-light">
+                <img src="images/placeholder.png" class="card-img-top" alt="Producto 3">
+                <div class="card card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">Producto 3</h5>
+                    <p class="card-text">Descripción del producto 3</p>
+                    <p class="card-text">Precio: 300$</p>
+                    <a href="#" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+            </div>
+            <!-- Producto 4 (card) -->
+            <div class="card h-100 border-light">
+                <img src="images/placeholder.png" class="card-img-top" alt="Producto 4">
+                <div class="card card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">Producto 4</h5>
+                    <p class="card-text">Descripción del producto 4</p>
+                    <p class="card-text">Precio: 400$</p>
+                    <a href="#" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+            </div>
+            <!-- Producto 5 (card) -->
+            <div class="card h-100 border-light">
+                <img src="images/placeholder.png" class="card-img-top" alt="Producto 5">
+                <div class="card card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">Producto 5</h5>
+                    <p class="card-text">Descripción del producto 5</p>
+                    <p class="card-text">Precio: 500$</p>
+                    <a href="#" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+            </div>
+            <!-- Producto 6 (card) -->
+            <div class="card h-100 border-light">
+                <img src="images/placeholder.png" class="card-img-top" alt="Producto 6">
+                <div class="card card-body d-flex flex-column align-items-center">
+                    <h5 class="card-title">Producto 6</h5>
+                    <p class="card-text">Descripción del producto 6</p>
+                    <p class="card-text">Precio: 600$</p>
+                    <a href="#" class="btn btn-success">Añadir al carrito</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-xl-4 col-lg-4 col-xxl-4 py-2 text-center">
+                    <h5 class="text-center text-uppercase pb-1">Contacto</h5>
+                    <p> <i class="fa fa-map-marker fa-sm" aria-hidden="true"></i>
+                        Av. Okumay 123<br />
+                        <i class="fa-brands fa-whatsapp"></i>
+                        123456789<br />
+                        <i class="fa-solid fa-clock"></i>
+                        Lunes a Viernes de 9 a 18hs
+                    </p>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-xxl-4 py-2 text-center">
+                    <h5 class="text-uppercase">contenido</h5>
+                    <ul class="list-unstyled">
+                        <li><a class="nav-link" href="index.html">home</a></li>
+                        <li><a class="nav-link" href="tienda.html">tienda</a></li>
+                        <li><a class="nav-link" href="contacto.html">contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-xxl-4 py-2 text-center">
+                    <h5 class="text-uppercase pb-1">Seguinos en</h5>
+                    <ul class="list-unstyled d-flex justify-content-center">
+                        <li><a class="nav-link pe-3" href="#ig" title="instagram.com">
+                                <i class="fab fa-instagram fa-xl"></i>
+                            </a></li>
+                        <li><a class="nav-link pe-3" href="#face" title="facebook.com">
+                                <i class="fab fa-facebook fa-xl"></i>
+                            </a></li>
+                        <li><a class="nav-link" href="#x" title="X.com">
+                                <i class="fab fa-x fa-xl"></i>
+                            </a></li>
+                    </ul>
+                </div>
+                <div class="col text-center">
+                    <p>Sin fines comerciales, pagina creada para <a class="nav-link d-inline"
+                            href="https://inscripcionesagencia.bue.edu.ar/talentotech/" target="_blank"
+                            rel="noopener">Talento Tech</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font-awesome Script -->
+    <script src="https://kit.fontawesome.com/a16d3588ae.js" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

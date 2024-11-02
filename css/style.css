@@ -1,0 +1,242 @@
+:root {
+  --negro: #1a1a19;
+  --negro-claro: #40403d;
+  --verde-claro: #859f3d;
+  --verde-oscuro: #31511e;
+  --blanco: #f6fcdf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "REM", sans-sZrif;
+  font-optical-sizing: auto;
+  object-fit: cover;
+}
+
+/* https://cssgradient.io/ */
+#reseñas,
+#cuerpo-tienda {
+  background: rgb(26, 26, 25);
+  background: linear-gradient(
+    180deg,
+    rgba(26, 26, 25, 1) 28%,
+    rgba(67, 70, 40, 1) 48%,
+    rgba(76, 80, 41, 1) 75%,
+    rgba(133, 159, 61, 1) 100%
+  );
+}
+
+/* ------------- HEADER ----------------  */
+
+nav {
+  background-color: var(--negro);
+  border-bottom: solid 1px var(--blanco);
+}
+
+.nav-item a {
+  padding-bottom: 2px;
+  transition: all 0.3s ease-in-out;
+  border-bottom: 2px solid transparent;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+a.nav-link:hover {
+  border-bottom-color: var(--verde-claro);
+  color: var(--verde-claro);
+}
+
+.navbar-brand img {
+  transform: scale(2);
+  height: 50px;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand img {
+    /* Para cuando se haga zoom no colisione el icono con las li */
+    transform: scale(1.5);
+    padding-right: 1rem;
+  }
+}
+
+.offcanvas-title {
+  color: white;
+}
+
+.offcanvas.show form {
+  margin-top: 10px;
+  padding-bottom: 1rem;
+}
+
+/* ------------- SLIDER ----------------  */
+
+.carousel-inner .carousel-item {
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  /* filter: blur(1px) */
+}
+
+.foto1 {
+  background: url(../images/carousel1.jpg) no-repeat center center fixed;
+  opacity: 0.8;
+}
+
+.foto2 {
+  background: url(../images/carousel2.jpg) no-repeat center center fixed;
+  opacity: 0.8;
+}
+
+.foto3 {
+  background: url(../images/carousel3.jpg) no-repeat center center fixed;
+  opacity: 0.8;
+}
+
+.carousel-title,
+main h2 {
+  font-weight: 600;
+  color: var(--verde-claro);
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
+  -webkit-text-stroke: #1a1a19 0.9px;
+}
+
+.carousel-caption p,
+.section-subheading {
+  font-weight: 600;
+  -webkit-text-stroke: #1a1a19 0.7px;
+  color: #f6fcdf;
+}
+
+/* ------------- RESEÑAS ----------------  */
+
+#reseñas {
+  border-top: 1px solid var(--blanco);
+}
+
+@media (min-width: 1024px) {
+  /* Para pantallas grandes */
+  .container {
+    display: grid;
+    place-items: center; /* Centra el contenido horizontal y verticalmente */
+  }
+}
+
+.grid-container {
+  display: grid;
+  /*  inserta el número de columnas o filas necesario para rellenar el espacio.*/
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  max-width: 1000px; /* Ajusta según el tamaño máximo deseado */
+  width: 100%;
+}
+
+section .grid-container .card {
+  background-color: var(--blanco);
+}
+
+.imagen {
+  width: 50%;
+  height: 150px;
+  border-radius: 100%;
+}
+
+@media (max-width: 720px) {
+  .imagen {
+    width: 50%;
+    height: 180px;
+    border-radius: 100%;
+  }
+}
+
+.review1 {
+  background: url(../images/review1.png);
+  background-size: cover;
+}
+
+.review2 {
+  background: url(../images/review2.png);
+  background-size: cover;
+}
+
+.review3 {
+  background: url(../images/review3.png);
+  background-size: cover;
+}
+
+.fa-quote-left,
+.fa-quote-right {
+  color: var(--verde-oscuro);
+}
+
+/* ------------- TIENDA ----------------  */
+#tienda {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#tienda .card {
+  flex: 1 1 100%;
+}
+
+@media (min-width: 768px) {
+  /* Para pantallas medianas */
+  #tienda .card {
+    flex: 1 1 30%; /* Ocupa aproximadamente un tercio de la fila para mostrar 3 cards */
+  }
+
+  #tienda .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Para pantallas pequeñas */
+  #tienda .card {
+    flex: 1 1 100%; /* Ocupa el 100% para mostrar 1 card por fila */
+  }
+}
+
+#tienda .card img {
+  width: 100%;
+  height: auto;
+}
+
+.card a, 
+.form-contacto button{
+  background-color: var(--verde-oscuro);
+  border: none;
+}
+
+/* ------------- CONTACTO ----------------  */
+
+.form-contacto {
+  border: 1px solid var(--negro);
+  border-radius: 25px;
+  background-color: var(--negro);
+}
+
+
+.form-label {
+  font-weight: 600;
+  color: var(--verde-claro);
+  -webkit-text-stroke: #1a1a19 0.9px;
+} 
+
+
+
+/* ------------- FOOTER ----------------  */
+
+footer {
+  background-color: var(--negro);
+  color: white;
+  border-top: var(--blanco) solid 1px;
+}
+
+footer li i:hover {
+  color: var(--verde-claro);
+}
