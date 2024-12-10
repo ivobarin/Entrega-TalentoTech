@@ -216,11 +216,11 @@ section .grid-container .card {
 /* ------------- CONTACTO ----------------  */
 
 .form-contacto {
-  border: 1px solid var(--negro);
+  border: 1px solid var(--blanco);
   border-radius: 25px;
+  width: 70%;
   background-color: var(--negro);
 }
-
 
 .form-label {
   font-weight: 600;
@@ -228,7 +228,12 @@ section .grid-container .card {
   -webkit-text-stroke: #1a1a19 0.9px;
 } 
 
-
+main#contacto {
+  padding: 10px;
+  background-image: url("../images/carousel2.jpg");
+  background-size: cover;
+  background-position:bottom;
+}
 
 /* ------------- FOOTER ----------------  */
 
