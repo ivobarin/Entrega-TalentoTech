@@ -76,6 +76,7 @@ a.nav-link:hover {
   width: 100%;
   height: 350px;
   background-size: cover;
+  background-position: center;
   /* filter: blur(1px) */
 }
 
