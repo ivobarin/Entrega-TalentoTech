@@ -13,7 +13,7 @@ Usa JavaScript para manipular elementos del DOM, por ejemplo, actualizar el carr
 
 // ------------------------ Para manejar las validacion del formulario contacto ------------------------
 const form = document.getElementById("form-contacto");
-if (window.location.pathname.includes("contacto.html")) {
+if (window.location.pathname.includes("contacto")) {
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
