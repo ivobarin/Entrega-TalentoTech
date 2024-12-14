@@ -80,7 +80,7 @@ const renderizarProductos = async () => {
   try {
     // fake api de productos craeda con mockaroo y mocki.io
     // limite de 200 peticiones por dia en mockaroo, en mocki.io no se especifica
-    const url = "https://mocki.io/v1/84f699a5-97f1-4fb8-aeea-b90a6ea56749"; 
+    const url = "https://mocki.io/v1/84f699a5-97f1-4fb8-aeea-b90a6ea56749";
     const products = await getProducts(url);
     const cards = document.querySelectorAll(".card");
 
@@ -106,6 +106,7 @@ const renderizarProductos = async () => {
       title.textContent = product.name;
       description.textContent = product.description;
       price.textContent = `Precio: ${product.price}$`;
+      console.log("Producto renderizado: ", product);
     });
   } catch (error) {
     console.log("Error al renderizar productos", error);
@@ -136,7 +137,6 @@ if (window.location.pathname.includes("tienda.html")) {
               image_url: card.querySelector("img").getAttribute("src"),
               cantidad: 1,
             };
-            
 
             const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             const productoExistente = carrito.find(
@@ -167,8 +167,9 @@ function actualizarCarrito() {
   const carritoContainer = document.querySelector(".carrito-container");
   const parentContainer = carritoContainer.parentElement;
   const div = document.createElement("div");
-  div.style =  "display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;"
-  
+  div.style =
+    "display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;";
+
   if (carrito.length > 0) {
     parentContainer.classList.remove("container");
     carritoContainer.classList.remove("row");
@@ -178,7 +179,9 @@ function actualizarCarrito() {
       productoElement.classList.add("card", "border-dark", "h-100", "mb-3");
       productoElement.style = "width: 20rem;";
       productoElement.innerHTML = `
-      <img src="${producto.image_url}"  class="card-img-top" alt="${producto.name}" style = "width: 300px; height: 200px; object-fit: cover;">
+      <img src="${producto.image_url}"  class="card-img-top" alt="${
+        producto.name
+      }" style = "width: 300px; height: 200px; object-fit: cover;">
       <div class="card-body d-flex flex-column align-items-center">
         <h5 class="card-title">${producto.name}</h5>
         <p class="card-text">Cantidad: ${producto.cantidad}</p>
@@ -194,13 +197,15 @@ function actualizarCarrito() {
       precioTotal += producto.price * producto.cantidad;
     });
 
-    // Muestra el precio total 
+    // Muestra el precio total
     const totalElement = document.createElement("div");
     totalElement.style = "display: block; width: 100%;";
     totalElement.classList.add("text-end", "mt-3");
     totalElement.innerHTML = `
     <br/>
-    <h3 class="text-center"><strong>Total del carrito: ${precioTotal.toFixed(2)}$</strong></h3>
+    <h3 class="text-center"><strong>Total del carrito: ${precioTotal.toFixed(
+      2
+    )}$</strong></h3>
     <div class="container">
     <br/>
     <br/>
@@ -214,10 +219,10 @@ function actualizarCarrito() {
 if (window.location.pathname.includes("carrito.html")) {
   document.addEventListener("DOMContentLoaded", actualizarCarrito());
   const btnComprar = document.querySelector(".btn-comprar");
-  btnComprar.addEventListener("click", () => {
-    localStorage.clear()
-    location.reload();
-  });
+  if (btnComprar) {
+    btnComprar.addEventListener("click", () => {
+      localStorage.clear();
+      location.reload();
+    });
+  }
 }
-
-
