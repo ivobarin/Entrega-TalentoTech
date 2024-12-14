@@ -96,7 +96,8 @@ a.nav-link:hover {
 }
 
 .carousel-title,
-main h2 {
+.title-carrito, 
+main h2{
   font-weight: 600;
   color: var(--verde-claro);
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
@@ -207,8 +208,8 @@ section .grid-container .card {
   height: auto;
 }
 
-.card a, 
-.form-contacto button{
+.card a,
+.form-contacto button {
   background-color: var(--verde-oscuro);
   border: none;
 }
@@ -226,13 +227,14 @@ section .grid-container .card {
   font-weight: 600;
   color: var(--verde-claro);
   -webkit-text-stroke: #1a1a19 0.9px;
-} 
+  font-size: 20px;
+}
 
 main#contacto {
-  padding: 10px;
+  padding: 75px;
   background-image: url("../images/carousel2.jpg");
   background-size: cover;
-  background-position:bottom;
+  background-position: bottom;
 }
 
 /* ------------- FOOTER ----------------  */
@@ -245,4 +247,18 @@ footer {
 
 footer li i:hover {
   color: var(--verde-claro);
+}
+
+/* ------------- CARRITO VACIO ---------------- */
+
+.btn-vacio{
+  transform: scale(1.5);
+}
+
+main#seccion-carrito{
+  padding: 75px;
+}
+
+.hidden {
+  visibility: hidden;
 }
