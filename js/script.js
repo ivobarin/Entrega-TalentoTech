@@ -119,7 +119,7 @@ const renderizarProductos = async () => {
 };
 
 // ------------------------ Agregar productos al carrito ------------------------
-if (window.location.pathname.includes("tienda.html")) {
+if (window.location.pathname.includes("tienda")) {
   document.addEventListener("DOMContentLoaded", () => {
     // localStorage.clear(); // ---------------------------------> Limpiar el carrito (luego quitar)
     renderizarProductos().then(() => {
@@ -216,7 +216,7 @@ function actualizarCarrito() {
   }
 }
 
-if (window.location.pathname.includes("carrito.html")) {
+if (window.location.pathname.includes("carrito")) {
   document.addEventListener("DOMContentLoaded", actualizarCarrito());
   const btnComprar = document.querySelector(".btn-comprar");
   if (btnComprar) {
