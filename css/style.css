@@ -262,3 +262,35 @@ main#seccion-carrito{
 .hidden {
   visibility: hidden;
 }
+
+/* ------------- SWEETALERT ------------- */
+
+.swal-modal {
+  background-color: #1a1a19;
+}
+
+.swal-text {
+  font-family: "REM", sans-sZrif;
+  font-weight: bold;
+  font-size: x-large;
+  -webkit-text-stroke: white 0.5px;
+}
+
+.swal-button {
+  background-color: #859f3d;
+  color: #fff;
+  font-size: medium;
+  -webkit-text-stroke: black 0.5px;
+
+}
+
+.swal-icon--success::before,
+.swal-icon--success::after,
+.swal-icon--success__hide-corners {
+  display: none;
+}
+
+button.btn-add, 
+button.btn-remove {
+  border-radius: 50%;
+}
