@@ -208,7 +208,7 @@ function actualizarCarrito() {
       productoElement.innerHTML = `
       <img src="${producto.image_url}"  class="card-img-top" alt="${
         producto.name
-      }" style = "width: 300px; height: 200px; object-fit: cover;">
+      }" style = "width: 100%; height: 200px; object-fit: cover;">
       <div class="card-body d-flex flex-column align-items-center">
         <h5 class="card-title">${producto.name}</h5>
         <span class="card-text">Cantidad: ${producto.cantidad}</span>
@@ -240,10 +240,12 @@ function actualizarCarrito() {
     <h3 class="text-center"><strong>Total del carrito: ${precioTotal.toFixed(
       2
     )}$</strong></h3>
-    <div class="container">
+    <div class="d-flex justify-content-center mt-4 pt-4">
     <br/>
     <br/>
-    <btn class="btn btn-primary btn-comprar" style="transform: scale(1.5)">Comprar</btn>
+    <btn class="btn btn-primary btn-comprar pt-2" style="transform: scale(1.8)">
+    <i class="fa-solid fa-credit-card"></i> Comprar
+    </btn>
     </div>
     `;
     parentContainer.appendChild(totalElement);
