@@ -96,8 +96,8 @@ a.nav-link:hover {
 }
 
 .carousel-title,
-.title-carrito, 
-main h2{
+.title-carrito,
+main h2 {
   font-weight: 600;
   color: var(--verde-claro);
   text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.6);
@@ -180,13 +180,10 @@ section .grid-container .card {
   gap: 1rem;
 }
 
-#tienda .card {
-  flex: 1 1 100%;
-}
-
 @media (min-width: 768px) {
   /* Para pantallas medianas */
-  #tienda .card {
+  #tienda .card,
+  #seccion-carrito .card {
     flex: 1 1 30%; /* Ocupa aproximadamente un tercio de la fila para mostrar 3 cards */
   }
 
@@ -198,7 +195,8 @@ section .grid-container .card {
 
 @media (max-width: 480px) {
   /* Para pantallas pequeñas */
-  #tienda .card {
+  #tienda .card,
+  #seccion-carrito .card {
     flex: 1 1 100%; /* Ocupa el 100% para mostrar 1 card por fila */
   }
 }
@@ -216,10 +214,11 @@ section .grid-container .card {
 
 /* ------------- CONTACTO ----------------  */
 
+/* Estilos generales */
 .form-contacto {
   border: 1px solid var(--blanco);
   border-radius: 25px;
-  width: 70%;
+  width: 95%;
   background-color: var(--negro);
 }
 
@@ -237,6 +236,42 @@ main#contacto {
   background-position: bottom;
 }
 
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  /* Ajustes para el formulario */
+  .form-contacto {
+    width: 90%; /* Ocupa más ancho en pantallas pequeñas */
+    padding: 15px; /* Reduce el padding interno */
+    margin: 0 auto; /* Centra el formulario */
+  }
+
+  /* Ajustes para etiquetas */
+  .form-label {
+    font-size: 16px; /* Reduce el tamaño de las etiquetas */
+    -webkit-text-stroke: #1a1a19 0.7px; /* Ajusta el contorno */
+  }
+
+  /* Ajustes para la sección principal */
+  main#contacto {
+    padding: 20px; /* Reduce el padding para ajustar el espacio */
+    background-position: center; /* Centra la imagen de fondo */
+  }
+
+  /* Ajustes para los campos del formulario */
+  .form-contacto input,
+  .form-contacto textarea {
+    font-size: 16px; /* Ajusta el tamaño de texto */
+    padding: 8px; /* Reduce el padding interno */
+  }
+
+  /* Botón de envío */
+  .form-contacto button {
+    width: 100%; /* El botón ocupa todo el ancho */
+    font-size: 18px; /* Ajusta el tamaño del texto */
+    padding: 10px; /* Aumenta la altura del botón */
+  }
+}
+
 /* ------------- FOOTER ----------------  */
 
 footer {
@@ -251,14 +286,52 @@ footer li i:hover {
 
 /* ------------- CARRITO VACIO ---------------- */
 
-.btn-vacio{
+.btn-vacio {
   transform: scale(1.5);
 }
 
-main#seccion-carrito{
+main#seccion-carrito {
   padding: 75px;
 }
 
 .hidden {
   visibility: hidden;
+}
+
+#carrito-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* ------------- SWEETALERT ------------- */
+
+.swal-modal {
+  background-color: #1a1a19;
+}
+
+.swal-text {
+  font-family: "REM", sans-sZrif;
+  font-weight: bold;
+  font-size: x-large;
+  -webkit-text-stroke: white 0.5px;
+}
+
+.swal-button {
+  background-color: #859f3d;
+  color: #fff;
+  font-size: medium;
+  -webkit-text-stroke: black 0.5px;
+}
+
+.swal-icon--success::before,
+.swal-icon--success::after,
+.swal-icon--success__hide-corners {
+  display: none;
+}
+
+button.btn-add,
+button.btn-remove {
+  border-radius: 50%;
 }
