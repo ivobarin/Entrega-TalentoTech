@@ -11,8 +11,27 @@ Usa JavaScript para manipular elementos del DOM, por ejemplo, actualizar el carr
 - Visualización de Productos: Cada producto debe tener su imagen, título y precio, mostrando una lista atractiva para el usuario.
 */
 
-// ------------------------------------------------ contacto ------------------------------------------------
+// ------------------------------------------------  header ------------------------------------------------
+/**
+ * Funcion para mostrar la cantidad de productos en el carrito
+ * Muestra la cantidad de productos en el carrito en el icono del carrito en el header 
+ */
+function cartCounter(){
+  const counter = document.getElementById("cart-counter");
+  const cart = JSON.parse(localStorage.getItem("carrito")) || [];
+  if (cart.length === 0) {
+    counter.textContent = 0; 
+  }
+  else 
+  {
+    const total = cart.reduce((acc, prod) => acc + prod.cantidad, 0);
+    counter.textContent = total;
+  }
+}
 
+cartCounter();
+
+// ------------------------------------------------ contacto ------------------------------------------------
 /** 
  * Evento para validar el formulario de contacto
  * Valida los campos del formulario de contacto y muestra mensajes de error si los campos no son válidos
@@ -165,9 +184,11 @@ if (window.location.pathname.includes("tienda")) {
             productoExistente
               ? productoExistente.cantidad++
               : carrito.push(productoData);
-
+            
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
+            cartCounter();
+            
             swal({
               text: "Producto agregado al carrito",
               icon: "success",
@@ -262,7 +283,8 @@ function añadirProducto(id) {
   const producto = carrito.find((prod) => prod.id === id);
   producto.cantidad++;
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarCarrito();
+  actualizarCarrito(); 
+  cartCounter();
 }
 
 /**
@@ -281,6 +303,7 @@ function quitarProducto(id) {
   }
   localStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarrito();
+  cartCounter();
 }
 
 /**
@@ -323,3 +346,4 @@ if (window.location.pathname.includes("carrito")) {
     });
   }
 }
+

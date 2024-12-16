@@ -23,7 +23,6 @@ header, nav, main, section, footer.  -->
 </head>
 
 <body>
-
     <!-- Header con Navbar -->
     <header class="container-menu">
         <nav class="navbar navbar-expand-md navbar-fixed-top navbar-dark">
@@ -68,16 +67,20 @@ header, nav, main, section, footer.  -->
                 </div>
 
                 <!-- carrito y botón menú -->
-                <div class="d-flex">
+                <div id="divCarrito" class="d-flex justify-content-end">
                     <!-- carrito -->
-                    <ul class="navbar-nav me-4">
+                    <ul class="navbar-nav me-4 cart-container">
                         <li class="nav-item">
                             <a class="nav-link underline" href="carrito.html" title="carrito">
                                 <i class="fa-solid fa-cart-shopping fa-xl"></i>
                             </a>
                         </li>
-                    </ul>
+                        <li class="nav-item ps-2 container-counter">
+                            <span id="cart-counter"
+                                class="translate-middle badge rounded-pill badge text-bg-secondary">0</span>
 
+                        </li>
+                    </ul>
                     <!-- botón menú -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
@@ -88,6 +91,7 @@ header, nav, main, section, footer.  -->
             </div>
         </nav>
     </header>
+
 
     <!-- Main -->
     <main>
@@ -102,7 +106,8 @@ header, nav, main, section, footer.  -->
                 <div class="carousel-caption">
                     <h2 class="carousel-title text-uppercase">Pagá en cuotas. Envíos grátis en 24hs. </h2>
                     <p>
-                        Descubre en TIENDA ABACUS la mejor oferta y disponibilidad de instrumentos musicales y audio profesional.
+                        Descubre en TIENDA ABACUS la mejor oferta y disponibilidad de instrumentos musicales y audio
+                        profesional.
                     </p>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
@@ -215,6 +220,10 @@ header, nav, main, section, footer.  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+
+    <!-- script propio -->
+    <script src="./js/script.js"></script>
+
 </body>
 
 </html>

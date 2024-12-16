@@ -64,16 +64,19 @@
                 </div>
 
                 <!-- carrito y botón menú -->
-                <div class="d-flex">
+                <div id="divCarrito" class="d-flex justify-content-end">
                     <!-- carrito -->
-                    <ul class="navbar-nav me-4">
+                    <ul class="navbar-nav me-4 cart-container">
                         <li class="nav-item">
                             <a class="nav-link underline" href="carrito.html" title="carrito">
                                 <i class="fa-solid fa-cart-shopping fa-xl"></i>
                             </a>
                         </li>
-                    </ul>
+                        <li class="nav-item ps-2 container-counter">
+                            <span id="cart-counter" class="translate-middle badge rounded-pill badge text-bg-secondary">0</span>
 
+                        </li>
+                    </ul>
                     <!-- botón menú -->
                     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
