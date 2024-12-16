@@ -11,7 +11,13 @@ Usa JavaScript para manipular elementos del DOM, por ejemplo, actualizar el carr
 - Visualización de Productos: Cada producto debe tener su imagen, título y precio, mostrando una lista atractiva para el usuario.
 */
 
-// ------------------------ Para manejar las validacion del formulario contacto ------------------------
+// ------------------------------------------------ contacto ------------------------------------------------
+
+/** 
+ * Evento para validar el formulario de contacto
+ * Valida los campos del formulario de contacto y muestra mensajes de error si los campos no son válidos
+ * Si no hay errores, se envía el formulario
+*/
 const form = document.getElementById("form-contacto");
 if (window.location.pathname.includes("contacto")) {
   form.addEventListener("submit", (e) => {
@@ -63,7 +69,12 @@ if (window.location.pathname.includes("contacto")) {
     }
   });
 }
-// ------------------------ api de productos ------------------------
+// ------------------------------------------- api de productos -------------------------------------------
+/**
+ * Obtiene los productos de la api
+ * @param {string} url - Url de la api
+ * @returns {Promise<Object>} - Retorna un objeto con los productos
+ */
 const getProducts = async (url) => {
   try {
     const response = await fetch(url);
@@ -75,11 +86,16 @@ const getProducts = async (url) => {
   }
 };
 
-// ------------------------ renderizado de productos ------------------------
+// ------------------------------------------------ tienda ------------------------------------------------
+/**
+ * Renderiza los productos en la tienda
+ * Funcion asincrona que obtiene los productos de la api y los renderiza en la tienda
+ * @returns {Promise<void>} - No retorna nada
+ * 
+ */
 const renderizarProductos = async () => {
   try {
-    // fake api de productos craeda con mockaroo y mocki.io
-    // limite de 200 peticiones por dia en mockaroo, en mocki.io no se especifica
+    // fake api de productos craeda con mockaroo y mocki.io (6 productos de ejemplo)
     const url = "https://mocki.io/v1/84f699a5-97f1-4fb8-aeea-b90a6ea56749";
     const products = await getProducts(url);
     const cards = document.querySelectorAll(".card");
@@ -118,10 +134,13 @@ const renderizarProductos = async () => {
   }
 };
 
-// ------------------------ Agregar productos al carrito ------------------------
+/**
+ * Evento para agregar productos al carrito
+ * Agrega un evento click "btn-add-cart" a cada producto de la tienda
+ * Se agrega el producto al carrito y se guarda en el local storage
+ */
 if (window.location.pathname.includes("tienda")) {
   document.addEventListener("DOMContentLoaded", () => {
-    // localStorage.clear(); // ---------------------------------> Limpiar el carrito (luego quitar)
     renderizarProductos().then(() => {
       const productos = document.querySelectorAll(".card");
 
@@ -148,10 +167,12 @@ if (window.location.pathname.includes("tienda")) {
               : carrito.push(productoData);
 
             localStorage.setItem("carrito", JSON.stringify(carrito));
-            console.log(
-              "Producto agregado al carrito: ",
-              JSON.parse(localStorage.getItem("carrito"))
-            );
+
+            swal({
+              text: "Producto agregado al carrito",
+              icon: "success",
+              button: "Aceptar",
+            });
           }
         });
       });
@@ -159,8 +180,12 @@ if (window.location.pathname.includes("tienda")) {
   });
 }
 
-// ------------------------ Actualizar productos del carrito ------------------------
-
+// ------------------------------------------------  carrito ------------------------------------------------
+/**
+ * Actualiza los productos del carrito
+ * renderiza los productos del carrito en la pagina de carrito
+ * @returns {void} - No retorna nada
+ */
 function actualizarCarrito() {
   let precioTotal = 0;
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -171,33 +196,42 @@ function actualizarCarrito() {
     "display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;";
 
   if (carrito.length > 0) {
-    parentContainer.classList.remove("container");
-    carritoContainer.classList.remove("row");
+    parentContainer.classList.remove("container"); // hace que flexbox funcione correctamente
+    carritoContainer.classList.remove("row"); // hace que flexbox funcione correctamente 
     carritoContainer.innerHTML = "";
+    
     carrito.forEach((producto) => {
+      // Crea un elemento para cada producto
       const productoElement = document.createElement("div");
       productoElement.classList.add("card", "border-dark", "h-100", "mb-3");
       productoElement.style = "width: 20rem;";
       productoElement.innerHTML = `
       <img src="${producto.image_url}"  class="card-img-top" alt="${
         producto.name
-      }" style = "width: 300px; height: 200px; object-fit: cover;">
+      }" style = "width: 100%; height: 200px; object-fit: cover;">
       <div class="card-body d-flex flex-column align-items-center">
         <h5 class="card-title">${producto.name}</h5>
-        <p class="card-text">Cantidad: ${producto.cantidad}</p>
+        <span class="card-text">Cantidad: ${producto.cantidad}</span>
+        <div class="d-flex justify-content-center gap-3 w-40 m-2 pb-2">
+          <button class="btn btn-danger btn-remove" data-id="${
+            producto.id
+          }">-</button>
+          <button class="btn btn-success btn-add" data-id="${
+            producto.id
+          }">+</button>
+        </div>
         <p class="card-text">Precio: ${producto.price}$</p>
         <p class="card-text">Total: ${(
           producto.price * producto.cantidad
         ).toFixed(2)}$</p>
       </div>
     `;
-
       div.appendChild(productoElement);
       carritoContainer.appendChild(div);
-      precioTotal += producto.price * producto.cantidad;
+      precioTotal += producto.price * producto.cantidad; // Calcula el precio total
     });
 
-    // Muestra el precio total
+    // Muestra el precio total actualizado y añade el boton de comprar
     const totalElement = document.createElement("div");
     totalElement.style = "display: block; width: 100%;";
     totalElement.classList.add("text-end", "mt-3");
@@ -206,23 +240,86 @@ function actualizarCarrito() {
     <h3 class="text-center"><strong>Total del carrito: ${precioTotal.toFixed(
       2
     )}$</strong></h3>
-    <div class="container">
+    <div class="d-flex justify-content-center mt-4 pt-4">
     <br/>
     <br/>
-    <btn class="btn btn-success btn-comprar" style="transform: scale(1.5)">Comprar</btn>
+    <btn class="btn btn-primary btn-comprar pt-2" style="transform: scale(1.8)">
+    <i class="fa-solid fa-credit-card"></i> Comprar
+    </btn>
     </div>
     `;
     parentContainer.appendChild(totalElement);
   }
 }
 
+/**
+ * función para añadir productos al carrito
+ * Añade un producto al carrito y lo guarda en el local storage
+ * @param {*} id - data-id del producto
+ */
+function añadirProducto(id) {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const producto = carrito.find((prod) => prod.id === id);
+  producto.cantidad++;
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarrito();
+}
+
+/**
+ * función para eliminar productos al carrito
+ * elimina un producto del carrito y lo modifica en el local storage
+ * si la cantidad del producto es 0, se elimina del carrito 
+ * @param {*} id - data-id del producto
+ */
+function quitarProducto(id) {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const producto = carrito.find((prod) => prod.id === id);
+  producto.cantidad--;
+  if (producto.cantidad === 0) {
+    const index = carrito.indexOf(producto);
+    carrito.splice(index, 1);
+  }
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  actualizarCarrito();
+}
+
+/**
+ * Eventos principales para la pagina de carrito
+ * renderiza los productos del carrito y añade eventos a los botones de añadir, quitar y comprar
+ * recarga la pagina despues de añadir o quitar un producto para actualizar el carrito
+ */
 if (window.location.pathname.includes("carrito")) {
   document.addEventListener("DOMContentLoaded", actualizarCarrito());
   const btnComprar = document.querySelector(".btn-comprar");
-  if (btnComprar) {
-    btnComprar.addEventListener("click", () => {
-      localStorage.clear();
+
+  // Evento para agregar productos
+  document.querySelectorAll(".btn-add").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      añadirProducto(e.target.dataset.id);
+      location.reload(); 
+    });
+  });
+
+  // Evento para quitar productos
+  document.querySelectorAll(".btn-remove").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      quitarProducto(e.target.dataset.id);
       location.reload();
+    });
+  });
+
+  // Evento para comprar
+  if (btnComprar) {
+    btnComprar.addEventListener("click", (e) => {
+      e.preventDefault();
+      swal({
+        text: "Gracias por su compra!",
+        icon: "success",
+        button: "Aceptar",
+      }).then(() => {
+        localStorage.clear();
+        location.reload();
+      });
     });
   }
 }
