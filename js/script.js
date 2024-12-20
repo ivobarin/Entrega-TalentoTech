@@ -14,16 +14,14 @@ Usa JavaScript para manipular elementos del DOM, por ejemplo, actualizar el carr
 // ------------------------------------------------  header ------------------------------------------------
 /**
  * Funcion para mostrar la cantidad de productos en el carrito
- * Muestra la cantidad de productos en el carrito en el icono del carrito en el header 
+ * Muestra la cantidad de productos en el carrito en el icono del carrito en el header
  */
-function cartCounter(){
+function cartCounter() {
   const counter = document.getElementById("cart-counter");
   const cart = JSON.parse(localStorage.getItem("carrito")) || [];
   if (cart.length === 0) {
-    counter.textContent = 0; 
-  }
-  else 
-  {
+    counter.textContent = 0;
+  } else {
     const total = cart.reduce((acc, prod) => acc + prod.cantidad, 0);
     counter.textContent = total;
   }
@@ -32,11 +30,11 @@ function cartCounter(){
 cartCounter();
 
 // ------------------------------------------------ contacto ------------------------------------------------
-/** 
+/**
  * Evento para validar el formulario de contacto
  * Valida los campos del formulario de contacto y muestra mensajes de error si los campos no son válidos
  * Si no hay errores, se envía el formulario
-*/
+ */
 const form = document.getElementById("form-contacto");
 if (window.location.pathname.includes("contacto")) {
   form.addEventListener("submit", (e) => {
@@ -110,7 +108,7 @@ const getProducts = async (url) => {
  * Renderiza los productos en la tienda
  * Funcion asincrona que obtiene los productos de la api y los renderiza en la tienda
  * @returns {Promise<void>} - No retorna nada
- * 
+ *
  */
 const renderizarProductos = async () => {
   try {
@@ -184,11 +182,11 @@ if (window.location.pathname.includes("tienda")) {
             productoExistente
               ? productoExistente.cantidad++
               : carrito.push(productoData);
-            
+
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
             cartCounter();
-            
+
             swal({
               text: "Producto agregado al carrito",
               icon: "success",
@@ -208,24 +206,24 @@ if (window.location.pathname.includes("tienda")) {
  * @returns {void} - No retorna nada
  */
 function actualizarCarrito() {
-  let precioTotal = 0;
+  let precio = 0;
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const carritoContainer = document.querySelector(".carrito-container");
-  const parentContainer = carritoContainer.parentElement;
-  const div = document.createElement("div");
-  div.style =
-    "display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;";
 
   if (carrito.length > 0) {
-    parentContainer.classList.remove("container"); // hace que flexbox funcione correctamente
-    carritoContainer.classList.remove("row"); // hace que flexbox funcione correctamente 
+    carritoContainer.classList.remove("row"); // hace que flexbox funcione correctamente
+    carritoContainer.classList.add(
+      "d-flex",
+      "flex-wrap",
+      "gap-3",
+      "justify-content-center"
+    );
     carritoContainer.innerHTML = "";
-    
+
     carrito.forEach((producto) => {
       // Crea un elemento para cada producto
       const productoElement = document.createElement("div");
-      productoElement.classList.add("card", "border-dark", "h-100", "mb-3");
-      productoElement.style = "width: 20rem;";
+      productoElement.classList.add("card", "border-dark", "mb-3");
       productoElement.innerHTML = `
       <img src="${producto.image_url}"  class="card-img-top" alt="${
         producto.name
@@ -247,29 +245,40 @@ function actualizarCarrito() {
         ).toFixed(2)}$</p>
       </div>
     `;
-      div.appendChild(productoElement);
-      carritoContainer.appendChild(div);
-      precioTotal += producto.price * producto.cantidad; // Calcula el precio total
-    });
 
-    // Muestra el precio total actualizado y añade el boton de comprar
-    const totalElement = document.createElement("div");
-    totalElement.style = "display: block; width: 100%;";
-    totalElement.classList.add("text-end", "mt-3");
-    totalElement.innerHTML = `
-    <br/>
-    <h3 class="text-center"><strong>Total del carrito: ${precioTotal.toFixed(
-      2
-    )}$</strong></h3>
-    <div class="d-flex justify-content-center mt-4 pt-4">
-    <br/>
-    <br/>
-    <btn class="btn btn-primary btn-comprar pt-2" style="transform: scale(1.8)">
-    <i class="fa-solid fa-credit-card"></i> Comprar
-    </btn>
+      precio += producto.price * producto.cantidad;
+      sessionStorage.setItem("precioTotal", precio);
+      carritoContainer.appendChild(productoElement);
+    });
+  }
+}
+
+/**
+ * Actualiza el precio total del carrito
+ * Actualiza el precio total del carrito en la pagina de carrito
+ * @returns {void} - No retorna nada
+ */
+function actualizarPrecio() {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const carritoSeccion = document.getElementById("container-head");
+  const precioTotal = sessionStorage.getItem("precioTotal");
+
+  if (carrito.length > 0) {
+    const precioContainer = document.createElement("div");
+    precioContainer.innerHTML = `
+      <div id="precio-container" class="p-2 text-end mt-3">
+        <h3 class="text-center"><strong>Total del carrito: <span id="precio-total">
+       $${precioTotal.toString().split(".")[0]}
+        </span></strong></h3>
+        <div class="d-flex justify-content-center mt-3 pt-4">
+            <btn class="btn btn-primary btn-comprar pt-2">
+                <i class="fa-solid fa-credit-card" aria-hidden="true"></i> Comprar
+            </btn>
+        </div>
     </div>
     `;
-    parentContainer.appendChild(totalElement);
+
+    carritoSeccion.appendChild(precioContainer);
   }
 }
 
@@ -283,14 +292,15 @@ function añadirProducto(id) {
   const producto = carrito.find((prod) => prod.id === id);
   producto.cantidad++;
   localStorage.setItem("carrito", JSON.stringify(carrito));
-  actualizarCarrito(); 
+  actualizarCarrito();
+  actualizarPrecio();
   cartCounter();
 }
 
 /**
  * función para eliminar productos al carrito
  * elimina un producto del carrito y lo modifica en el local storage
- * si la cantidad del producto es 0, se elimina del carrito 
+ * si la cantidad del producto es 0, se elimina del carrito
  * @param {*} id - data-id del producto
  */
 function quitarProducto(id) {
@@ -303,6 +313,7 @@ function quitarProducto(id) {
   }
   localStorage.setItem("carrito", JSON.stringify(carrito));
   actualizarCarrito();
+  actualizarPrecio();
   cartCounter();
 }
 
@@ -313,13 +324,14 @@ function quitarProducto(id) {
  */
 if (window.location.pathname.includes("carrito")) {
   document.addEventListener("DOMContentLoaded", actualizarCarrito());
+  actualizarPrecio();
   const btnComprar = document.querySelector(".btn-comprar");
 
   // Evento para agregar productos
   document.querySelectorAll(".btn-add").forEach((btn) => {
     btn.addEventListener("click", (e) => {
       añadirProducto(e.target.dataset.id);
-      location.reload(); 
+      location.reload();
     });
   });
 
@@ -346,4 +358,3 @@ if (window.location.pathname.includes("carrito")) {
     });
   }
 }
-

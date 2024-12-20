@@ -186,7 +186,8 @@ section .grid-container .card {
 }
 
 /* ------------- TIENDA ----------------  */
-#tienda {
+#tienda, 
+#seccion-carrito {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -195,8 +196,7 @@ section .grid-container .card {
 
 @media (min-width: 768px) {
   /* Para pantallas medianas */
-  #tienda .card,
-  #seccion-carrito .card {
+  #tienda .card {
     flex: 1 1 30%; /* Ocupa aproximadamente un tercio de la fila para mostrar 3 cards */
   }
 
@@ -208,8 +208,7 @@ section .grid-container .card {
 
 @media (max-width: 480px) {
   /* Para pantallas pequeñas */
-  #tienda .card,
-  #seccion-carrito .card {
+  #tienda .card {
     flex: 1 1 100%; /* Ocupa el 100% para mostrar 1 card por fila */
   }
 }
@@ -304,7 +303,7 @@ footer li i:hover {
 }
 
 main#seccion-carrito {
-  padding: 75px;
+  padding: 25px;
 }
 
 .hidden {
@@ -316,6 +315,40 @@ main#seccion-carrito {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  /* Para pantallas medianas */
+  #seccion-carrito .card {
+    flex: 0 1 30%; /* Ocupa aproximadamente un tercio de la fila para mostrar 3 cards */
+  }
+
+  #tienda .card:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Para pantallas pequeñas */
+
+ main#seccion-carrito {
+  margin: 0;
+  padding: 0;
+}
+
+
+  #seccion-carrito .card {
+    flex: 0 1 100%;
+  }
+}
+
+.btn-comprar {
+  transform: scale(1.5);
+}
+
+#precio-total {
+  color: var(--verde-oscuro);
 }
 
 /* ------------- SWEETALERT ------------- */
