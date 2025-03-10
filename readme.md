@@ -4,6 +4,10 @@ Este proyecto es una tienda en línea de instrumentos musicales donde los client
 Ingrese a la pagina con [Netlify](https://tienda-abacus.netlify.app/)<br/>
 Ingrese a la pagina con [GitHub Pages](https://ivobarin.github.io/Entrega-TalentoTech/index.html)
 
+## Change Log 📝
+### (10/03/2025)
+- Se quito la API de Mocki por problemas de CORS.  
+- Se modifico el cdn de bootstrap para que funcione correctamente.
 
 ## Entrega final del curso de Talento Tech 📦
 Este proyecto es la entrega final del curso de Talento Tech, se aplicaron los conocimientos adquiridos en las clases de JavaScript para desarrollar una página web interactiva y que sea funcional para los usuarios.<br>

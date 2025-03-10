@@ -113,7 +113,7 @@ const getProducts = async (url) => {
 const renderizarProductos = async () => {
   try {
     // fake api de productos craeda con mockaroo y mocki.io (6 productos de ejemplo)
-    const url = "https://mocki.io/v1/84f699a5-97f1-4fb8-aeea-b90a6ea56749";
+    const url = "https://dummyjson.com/carts";
     const products = await getProducts(url);
     const cards = document.querySelectorAll(".card");
 
