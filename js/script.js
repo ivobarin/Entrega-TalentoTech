@@ -113,7 +113,7 @@ const getProducts = async (url) => {
 const renderizarProductos = async () => {
   try {
     // fake api de productos craeda con mockaroo y mocki.io (6 productos de ejemplo)
-    const url = "https://dummyjson.com/carts";
+    const url = "https://run.mocky.io/v3/00208380-4843-4bb3-a87a-b6956d2b565c";
     const products = await getProducts(url);
     const cards = document.querySelectorAll(".card");
 
@@ -135,7 +135,7 @@ const renderizarProductos = async () => {
       // Actualizar contenido de la tarjeta
       img.src = product.image_url;
       img.alt = product.name;
-      img.style = "width: 100%; height: 200px; object-fit: cover;";
+      img.style = "width: 100%; height: 250px; object-fit: cover;";
       title.textContent = product.name;
       description.textContent = product.description;
       price.textContent = `Precio: ${product.price}$`;

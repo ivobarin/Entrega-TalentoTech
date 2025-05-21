@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Guitarra Acústica Fender CD-60",
+    "description": "Guitarra acústica ideal para principiantes con cuerpo dreadnought y tapa de abeto.",
+    "price": 249.99,
+    "image_url": "https://i.pinimg.com/736x/ef/90/e1/ef90e1add91ab10875190e9ef6fe2f3f.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Batería Electrónica Roland TD-1DMK",
+    "description": "Kit de batería electrónica con pads de malla de doble capa para una experiencia realista.",
+    "price": 699.00,
+    "image_url": "https://gamamusic.com/cdn/shop/files/TD17KV2S-1.jpg?v=1690326730&width=700"
+  },
+  {
+    "id": 3,
+    "name": "Teclado Yamaha PSR-E373",
+    "description": "Teclado portátil de 61 teclas con 622 voces de instrumentos y funciones educativas.",
+    "price": 279.50,
+    "image_url": "https://i.pinimg.com/736x/2f/74/98/2f74986ca309e91e17b839d42be2c492.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Bajo Eléctrico Ibanez GSR200",
+    "description": "Bajo de 4 cuerdas con cuerpo ligero y controles activos para un sonido versátil.",
+    "price": 349.99,
+    "image_url": "https://i.pinimg.com/736x/a7/67/86/a7678661624e37eeba27ff93b86394d0.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Violín Cremona SV-175",
+    "description": "Violín acústico tamaño 4/4 con estuche rígido y arco de madera.",
+    "price": 199.00,
+    "image_url": "https://i.pinimg.com/736x/f7/2f/a1/f72fa1bb708c548d4416ce0b128a0958.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Micrófono Shure SM58",
+    "description": "Micrófono dinámico vocal profesional, ideal para presentaciones en vivo.",
+    "price": 109.00,
+    "image_url": "https://rvb-img.reverb.com/image/upload/s--A41zHix_--/f_auto,t_supersize/v1721159573/fj6jya26hhgkkwljsawp.jpg"
+  }
+]
